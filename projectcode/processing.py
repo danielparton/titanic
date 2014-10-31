@@ -1,6 +1,14 @@
+import os
 import pandas as pd
 import numpy as np
 import scipy.stats
+
+
+def parse_orig_train_data():
+    filepath = os.path.join('orig_data', 'train.csv')
+    df = pd.read_csv(filepath, header=0)
+    return df
+
 
 def process_data(filename):
     df = pd.read_csv(filename, header=0)

@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
@@ -18,5 +19,6 @@ def run_rforest(train_data, test_data):
 def write_output(index, predictions):
     df = pd.DataFrame({'Survived': predictions}, index=index)
     df.Survived = df.Survived.astype(int)
-    df.to_csv('data/predictions.csv')
+    ofilepath = os.path.join('predictions', 'predictions.csv')
+    df.to_csv(ofilepath)
     return df
